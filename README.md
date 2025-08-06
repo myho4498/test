@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View CIF File</title>
+    <script src="https://3dmol.org/build/3Dmol-min.js"></script>
+    <style>
+        #viewer {
+            width: 1200px;
+            height: 800px;
+            position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewer"></div>
 
+    <script>
+        let viewer = $3Dmol.createViewer("viewer", {backgroundColor: "white"});
+
+        // Load CIF file directly from GitHub raw URL
+        let url = 'https://raw.githubusercontent.com/myho4498/test/main/hpd961_auto_label.cif';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                viewer.addModel(data, "cif");
+                viewer.setStyle({}, {stick: {}, sphere: {scale: 0.3}});
+                viewer.zoomTo();
+                viewer.render();
+            })
+            .catch(err => console.error("Failed to load CIF:", err));
+    </script>
+</body>
+</html>
