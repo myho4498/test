@@ -4,10 +4,18 @@
     <title>View CIF File</title>
     <script src="https://3dmol.org/build/3Dmol-min.js"></script>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* prevents scrollbars inside this page */
+        }
         #viewer {
-            width: 1200px;
-            height: 800px;
-            position: relative;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
